@@ -16,6 +16,10 @@ class Variable():
                  self.j + (k if self.direction == Variable.ACROSS else 0))
             )
 
+        print(self.cells)
+        for row in self.cells:
+            print("row: ", row)
+
     def __hash__(self):
         return hash((self.i, self.j, self.direction, self.length))
 
@@ -60,6 +64,10 @@ class Crossword():
         # Save vocabulary list
         with open(words_file) as f:
             self.words = set(f.read().upper().splitlines())
+
+        print("Words:")
+        for word in self.words:
+            print("Word: ", word)
 
         # Determine variable set
         self.variables = set()
