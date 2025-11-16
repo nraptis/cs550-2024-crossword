@@ -100,13 +100,13 @@ class CrosswordCreator():
         (Remove any values that are inconsistent with a variable's unary
          constraints; in this case, the length of the word.)
         """
-        all_variables = list(self.domains.keys())
-        for variable in all_variables:
-            new_domain = set()
+        #all_variables = list(self.domains.keys())
+        for variable in self.crossword.variables:
+            size_match = set()
             for value in self.domains[variable]:
                 if len(value) == variable.length:
-                    new_domain.add(value)
-            self.domains[variable] = new_domain
+                    size_match.add(value)
+            self.domains[variable] = size_match
             
     def revise(self, x, y):
         """
